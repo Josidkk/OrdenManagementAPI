@@ -13,8 +13,8 @@ Para ejecutar este proyecto necesitas:
 ## Configuración y Ejecución
 
 1. Clonar el repositorio.
-2. Configurar la cadena de conexión en `appsettings.json`.
-   * El proyecto soporta tanto bases de datos locales como en la nube (Azure/AWS).
+2. Configurar la cadena de conexión en `appsettings.json`. (OPCIONAL : La Api cuenta con una bdd en la nube ) 
+   * El proyecto soporta tanto bases de datos locales como en la nube .
    * Asegúrese de que la cadena de conexión apunte a su instancia (Cloud o Local).
 3. Ejecutar el script de base de datos (`script.sql`) en su instancia de SQL Server para crear las tablas y procedimientos almacenados.
 4. Ejecutar la aplicación:
