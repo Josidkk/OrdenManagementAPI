@@ -9,6 +9,7 @@ Para ejecutar este proyecto necesitas:
 * .NET 8 SDK
 * SQL Server (Azure SQL, AWS RDS o instancia local)
 * Visual Studio 2022 o VS Code
+* NOTA: Antes de ejecutar asegurate de estar en la carpeta correcta que es "/OrdenManagementAPI"
 
 ## Configuración y Ejecución
 
