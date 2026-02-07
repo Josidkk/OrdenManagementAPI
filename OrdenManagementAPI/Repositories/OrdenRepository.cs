@@ -95,5 +95,21 @@ namespace OrderManagementAPI.Repositories
                 return (null, $"Error interno: {ex.Message}", -1);
             }
         }
+
+        public async Task<IEnumerable<Orden>> ObtenerOrdenesEncabezadoAsync()
+        {
+            return await _context.Ordens
+                .FromSqlRaw("EXEC sp_ObtenerOrdenesEncabezado")
+                .AsNoTracking()
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<DetalleOrden>> ObtenerOrdenesDetalleAsync(long ordenId)
+        {
+            return await _context.DetalleOrdens
+                .FromSqlRaw("EXEC sp_ObtenerOrdenesDetalle @Id={0}", ordenId)
+                .AsNoTracking()
+                .ToListAsync();
+        }
     }
 }

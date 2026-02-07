@@ -29,5 +29,26 @@ namespace OrderManagementAPI.Controllers
 
             return Ok(resultado); 
         }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(ApiResponse<IEnumerable<OrdenResponseDto>>), StatusCodes.Status200OK)]
+        public async Task<ActionResult<ApiResponse<IEnumerable<OrdenResponseDto>>>> ObtenerOrdenes()
+        {
+            var resultado = await _service.ObtenerOrdenesAsync();
+            return Ok(resultado);
+        }
+
+        [HttpGet("{id}")]
+        [ProducesResponseType(typeof(ApiResponse<OrdenResponseDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse<OrdenResponseDto>), StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<ApiResponse<OrdenResponseDto>>> ObtenerOrdenPorId(long id)
+        {
+            var resultado = await _service.ObtenerOrdenPorIdAsync(id);
+            if (!resultado.Success)
+            {
+                return NotFound(resultado);
+            }
+            return Ok(resultado);
+        }
     }
 }
